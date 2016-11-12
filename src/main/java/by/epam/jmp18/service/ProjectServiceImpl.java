@@ -1,6 +1,8 @@
 package by.epam.jmp18.service;
 
-import by.epam.jmp18.domain.Employee;
+import by.epam.jmp18.dao.ProjectDao;
+import by.epam.jmp18.domain.Project;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -8,23 +10,27 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class ProjectServiceImpl implements ProjectService {
-    @Override
-    public void save(Employee employee) {
 
+    @Autowired
+    private ProjectDao projectDao;
+
+    @Override
+    public void save(Project project) {
+        projectDao.save(project);
     }
 
     @Override
-    public Employee find(long id) {
-        return null;
+    public Project find(long id) {
+        return projectDao.find(id);
     }
 
     @Override
-    public void update(Employee employee) {
-
+    public void update(Project project) {
+        projectDao.update(project);
     }
 
     @Override
     public void delete(long id) {
-
+        projectDao.delete(id);
     }
 }

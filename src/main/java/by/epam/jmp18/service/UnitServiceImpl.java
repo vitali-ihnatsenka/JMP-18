@@ -1,6 +1,8 @@
 package by.epam.jmp18.service;
 
+import by.epam.jmp18.dao.UnitDao;
 import by.epam.jmp18.domain.Unit;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -8,23 +10,27 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class UnitServiceImpl implements UnitService {
+
+    @Autowired
+    private UnitDao unitDao;
+
     @Override
     public void save(Unit unit) {
-
+        unitDao.save(unit);
     }
 
     @Override
     public Unit find(long id) {
-        return null;
+        return unitDao.find(id);
     }
 
     @Override
     public void update(Unit unit) {
-
+        unitDao.update(unit);
     }
 
     @Override
     public void delete(long id) {
-
+        unitDao.delete(id);
     }
 }
